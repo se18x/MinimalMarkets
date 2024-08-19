@@ -1,11 +1,54 @@
+@import url("https://fonts.googleapis.com/css2?family=Bona+Nova:ital,wght@0,400;0,700;1,400&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-body {
-  background-color: blue;
-  color: white;
+.Main-container {
+  background-color: white;
+  max-width: 100%;
+  max-height: 100vh;
+}
+
+.Navbar-container {
+  max-width: 70%;
+  margin: auto;
+  height: 6vh;
+  margin-top: 10px;
+}
+
+.Navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.Navbar .brand {
+  display: flex;
+  align-items: center;
+}
+
+.Navbar .brand .Logo {
+  width: 50px;
+}
+
+.Navbar .brand h1 {
+  font-size: 42px;
+  margin-left: 0.5rem;
+  font-family: "Bona-Nova", serif;
   font-weight: bold;
+}
+
+.Navbar .account .profile {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+}
+
+.Wrapper {
+  max-width: 70%;
+  margin: auto;
 }
