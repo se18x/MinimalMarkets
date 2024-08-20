@@ -1,9 +1,18 @@
 import "./App.css";
 import Logo from "./minimal-markets-logo.svg";
+import axios from "axios";
+import { useState } from "react";
 
 function App() {
+  const [stockName, setStockName] = useState("");
   const findStocks = () => {
-    console.log("hello");
+    axios
+      .get(
+        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockName}&apikey=${process.env.REACT_APP_STOCK_API_KEY}`
+      )
+      .then((response) => {
+        console.log(response.data);
+      });
   };
   return (
     <div className="Main-container">
@@ -27,6 +36,7 @@ function App() {
           <div className="Stock-search">
             <input
               type="text"
+              onChange={(event) => setStockName(event.target.value)}
               placeholder="What's on your mind?"
               className="Stock-search-input"
             />
