@@ -5,14 +5,19 @@ import { useState } from "react";
 
 function App() {
   const [stockName, setStockName] = useState("");
+
   const findStocks = () => {
-    axios
-      .get(
-        `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockName}&apikey=${process.env.REACT_APP_STOCK_API_KEY}`
-      )
-      .then((response) => {
-        console.log(response.data);
-      });
+    if (stockName.length <= 2) {
+      console.log("enter a stock name that is greater than 2 letters");
+    } else if (stockName.length >= 2) {
+      axios
+        .get(
+          `https://www.alphavantage.co/query?function=TIME_SERIES_DAILY&symbol=${stockName}&apikey=${process.env.REACT_APP_STOCK_API_KEY}`
+        )
+        .then((response) => {
+          console.log(response.data);
+        });
+    }
   };
   return (
     <div className="Main-container">
