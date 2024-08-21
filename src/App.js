@@ -16,6 +16,11 @@ function App() {
         )
         .then((response) => {
           console.log(response.data);
+          if (response.data["Error Message"]) {
+            console.log(
+              "Oops, we couldn't find the stock that you are looking for 😭"
+            );
+          }
         });
     }
   };
